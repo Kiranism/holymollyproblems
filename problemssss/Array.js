@@ -119,12 +119,30 @@ function maxSubArr(nums) {
 
 // Brute Force Approach
 
-function maxSubArr(nums) {
-  let arr = Array.from(new Set(nums)).sort((a, b) => a - b);
-  if (arr.length > 2) {
-    return arr[arr.length - 2];
+// function maxSubArr(nums) {
+//   let arr = Array.from(new Set(nums)).sort((a, b) => a - b);
+//   if (arr.length > 2) {
+//     return arr[arr.length - 2];
+//   }
+//   return -1;
+// }
+// console.log(maxSubArr([12, 35, 1, 10, 34, 1]));
+// console.log(maxSubArr([10, 10]));
+
+// let arr = [2, 34, 1];
+// console.log(Math.max(...arr));
+
+function missingNumber(array, n) {
+  //code here
+  let number = 0;
+  let max = Math.max(...array);
+  console.log(max);
+  for (let i = 1; i <= max; i++) {
+    if (!array.includes(i)) {
+      number = i;
+    }
   }
-  return -1;
+  return number;
 }
-console.log(maxSubArr([12, 35, 1, 10, 34, 1]));
-console.log(maxSubArr([10, 10]));
+
+console.log(missingNumber([1, 2, 3, 5], 5));

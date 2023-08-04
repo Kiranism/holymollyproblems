@@ -67,7 +67,54 @@ Example 2:
 Input: nums = [0]
 Output: [0] */
 
-// var moveZeroes = function (nums) {
+var moveZeroesWithSpace = function (nums) {
+  let result = [];
+  let countZero = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] !== 0) {
+      result.push(nums[i]);
+    } else {
+      countZero++;
+    }
+  }
+  for (let i = 0; i < countZero; i++) {
+    result.push(0);
+  }
+  return result;
+};
+// console.log(moveZeroesWithSpace([0, 1, 0, 3, 12]));
 
-// };
+var moveZeroes = function (nums) {
+  let c = 0;
+  let n = nums.length;
+  for (let i = 0; i < n; i++) {
+    if (nums[i] !== 0) {
+      [nums[c], nums[i]] = [nums[i], nums[c]];
+      c++;
+    }
+  }
+  return nums;
+};
 // console.log(moveZeroes([0, 1, 0, 3, 12]));
+
+let a = 6;
+let b = 7;
+[b, a] = [a, b];
+// console.log(a, b);
+
+// check if pair with given sum is present
+// [2,1,1,0] s=3
+
+function checkSum(arr, sum) {
+  let hash = {};
+  for (let i = 0; i < arr.length; i++) {
+    const n = arr[i];
+    if (hash[sum - n] !== undefined) {
+      return true;
+    } else {
+      hash[n] = i;
+    }
+  }
+  return false;
+}
+console.log(checkSum([2, 1, 1, 0], 2));
