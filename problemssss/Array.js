@@ -136,7 +136,7 @@ function missingNumber(array, n) {
   //code here
   let number = 0;
   let max = Math.max(...array);
-  console.log(max);
+  // console.log(max);
   for (let i = 1; i <= max; i++) {
     if (!array.includes(i)) {
       number = i;
@@ -145,4 +145,58 @@ function missingNumber(array, n) {
   return number;
 }
 
-console.log(missingNumber([1, 2, 3, 5], 5));
+// console.log(missingNumber([1, 2, 3, 5], 5));
+
+// maximum subarray
+
+/* Given an integer array nums, find the 
+subarray
+ with the largest sum, and return its sum.
+Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
+Output: 6
+Explanation: The subarray [4,-1,2,1] has the largest sum 6.
+Example 2:
+
+Input: nums = [1]
+Output: 1
+Explanation: The subarray [1] has the largest sum 1.
+Example 3:
+
+Input: nums = [5,4,-1,7,8]
+Output: 23
+Explanation: The subarray [5,4,-1,7,8] has the largest sum 23. */
+
+function findSubArray(arr) {
+  let sum = 0;
+  let max = arr[0];
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+    if (sum > max) {
+      max = sum;
+    }
+    if (sum < 0) {
+      sum = 0;
+    }
+  }
+  return max;
+}
+
+// console.log(findSubArray([5, 4, -1, 7, 8]));
+
+// [1,2] => [{1:1,2:2}]
+
+// const modArr = (arr) => {
+//   let obj = {};
+//   for (let i = 0; i < arr.length; i++) {
+//     obj[i + 1] = arr[i];
+//   }
+//   return [obj];
+// };
+
+const modArr = (arr) => {
+  return arr.map((el) => {
+    return { [el]: el };
+  });
+};
+
+console.log(modArr([1, 2]));

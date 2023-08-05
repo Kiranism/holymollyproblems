@@ -215,3 +215,23 @@ function findLongestCommonPrefix(str) {
 
 console.log(findLongestCommonPrefix(["flower", "flow", "flight"]));
 console.log(findLongestCommonPrefix(["dog", "racecar", "car"]));
+
+function checkIsAnagram(x, y) {
+  if (x.length !== y.length) {
+    return false;
+  }
+  let obj1 = {};
+  let obj2 = {};
+  for (let i = 0; i < x.length; i++) {
+    obj1[x[i]] = (obj1[x[i]] || 0) + 1;
+    obj2[y[i]] = (obj2[y[i]] || 0) + 1;
+  }
+  for (s in obj1) {
+    if (obj1[s] !== obj2[s]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(checkIsAnagram("geeksforgeeks", "forgeekgeeks"));
