@@ -232,12 +232,9 @@ console.log(modArr([1, 2]));
 //   return ans;
 // }
 
-
 function productExceptSelf(nums) {
   const n = nums.length;
   const ans = new Array(n);
-
-
 }
 console.log(productExceptSelf([1, 2, 3, 4]));
 console.log(productExceptSelf([-1, 1, 0, -3, 3]));
@@ -245,8 +242,7 @@ console.log(productExceptSelf([0, 0]));
 
 console.log(5 / 2, 5 % 2);
 
-
-var productExceptSelf = function(nums) {
+var productExceptSelf = function (nums) {
   const length = nums.length;
   const result = new Array(length).fill(1);
 
@@ -266,3 +262,102 @@ var productExceptSelf = function(nums) {
 
   return result;
 };
+
+/* Example 1:
+
+Input:
+N = 5, S = 12
+A[] = {1,2,3,7,5}
+Output: 2 4
+Explanation: The sum of elements 
+from 2nd position to 4th position 
+is 12.
+Example 2:
+
+Input:
+N = 10, S = 15
+A[] = {1,2,3,4,5,6,7,8,9,10}
+Output: 1 5
+Explanation: The sum of elements 
+from 1st position to 5th position
+is 15. */
+
+// function subarraySum(arr, n, s) {
+//   let start = 0;
+//   let end = 0;
+//   let sum = 0;
+//   while (end <= n) {
+//     if (sum === s) {
+//       return [start + 1, end];
+//     }
+//     if (sum < s) {
+//       if (end < n) {
+//         sum += arr[end];
+//         end++;
+//       } else {
+//         break;
+//       }
+//     } else {
+//       sum -= arr[start];
+//       start++;
+//     }
+//   }
+// }
+
+function subarraySum(arr, n, s) {
+  for (let i = 0; i < n; i++) {
+    let currentSum = arr[i];
+    if (currentSum == s) {
+      console.log("sum" + i);
+      return;
+    } else {
+      for (let j = i + 1; j < n; j++) {
+        currentSum += arr[j];
+        if (currentSum == s) {
+          console.log("sum", i, j);
+          return;
+        }
+      }
+    }
+  }
+}
+
+console.log(subarraySum([1, 2, 3, 7, 5], 5, 12));
+console.log(subarraySum([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 10, 15));
+
+
+
+function subArraySum( arr,  n,  sum)
+{
+  
+    // Pick a starting point
+    for (let i = 0; i < n; i++) {
+        let currentSum = arr[i];
+  
+        if (currentSum == sum) {
+            console.log("Sum found at indexes " +i);
+            return;
+        }
+        else {
+            // Try all subarrays starting with 'i'
+            for (let j = i + 1; j < n; j++) {
+                currentSum += arr[j];
+  
+                if (currentSum == sum) {
+                    console.log("Sum found between indexes "
+                         + i + " and " +j);
+                    return;
+                }
+            }
+        }
+    }
+    console.log("No subarray found");
+    return;
+}
+  
+    let arr = [15, 2, 4, 8, 9, 5, 10, 23 ];
+    let n = arr.length;
+    let sum = 23;
+    subArraySum(arr, n, sum);
+  
+// This code is contributed by garg28harsh.
