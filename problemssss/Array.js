@@ -305,59 +305,101 @@ is 15. */
 // }
 
 function subarraySum(arr, n, s) {
-  for (let i = 0; i < n; i++) {
-    let currentSum = arr[i];
-    if (currentSum == s) {
-      console.log("sum" + i);
-      return;
+  let start = 0;
+  let end = 0;
+  let sum = arr[0];
+  if (sum === s) {
+    return [1, 1];
+  }
+  while (end < n - 1) {
+    if (sum + arr[end + 1] <= s) {
+      sum = sum + arr[end + 1];
+      end++;
     } else {
-      for (let j = i + 1; j < n; j++) {
-        currentSum += arr[j];
-        if (currentSum == s) {
-          console.log("sum", i, j);
-          return;
-        }
-      }
+      sum = sum - arr[start];
+      start++;
+    }
+    if (sum === s) {
+      return [start + 1, end + 1];
     }
   }
+  return -1;
 }
 
 console.log(subarraySum([1, 2, 3, 7, 5], 5, 12));
 console.log(subarraySum([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 10, 15));
 
+// function subArraySum2(arr, n, sum) {
+//   // Pick a starting point
+//   for (let i = 0; i < n; i++) {
+//     let currentSum = arr[i];
 
+//     if (currentSum == sum) {
+//       console.log("Sum found at indexes " + i);
+//       return;
+//     } else {
+//       // Try all subarrays starting with 'i'
+//       for (let j = i + 1; j < n; j++) {
+//         currentSum += arr[j];
 
-function subArraySum( arr,  n,  sum)
-{
-  
-    // Pick a starting point
-    for (let i = 0; i < n; i++) {
-        let currentSum = arr[i];
-  
-        if (currentSum == sum) {
-            console.log("Sum found at indexes " +i);
-            return;
-        }
-        else {
-            // Try all subarrays starting with 'i'
-            for (let j = i + 1; j < n; j++) {
-                currentSum += arr[j];
-  
-                if (currentSum == sum) {
-                    console.log("Sum found between indexes "
-                         + i + " and " +j);
-                    return;
-                }
-            }
-        }
-    }
-    console.log("No subarray found");
-    return;
-}
-  
-    let arr = [15, 2, 4, 8, 9, 5, 10, 23 ];
-    let n = arr.length;
-    let sum = 23;
-    subArraySum(arr, n, sum);
-  
+//         if (currentSum == sum) {
+//           console.log("Sum found between indexes " + i + " and " + j);
+//           return;
+//         }
+//       }
+//     }
+//   }
+//   console.log("No subarray found");
+//   return;
+// }
+
+let arr = [15, 2, 4, 8, 9, 5, 10, 23];
+let n = arr.length;
+let sum = 23;
+// subArraySum(arr, n, sum);
+
 // This code is contributed by garg28harsh.
+
+var singleNumber = function (nums) {
+  let hash = {};
+  let n = nums.length;
+  for (let i = 0; i < n; i++) {
+    hash[nums[i]] = (hash[nums[i]] || 0) + 1;
+  }
+  for (c in hash) {
+    if (hash[c] === 1) {
+      return +c;
+    }
+  }
+  // return hash;
+};
+
+// console.log(singleNumber([2, 2, 1]));
+
+// console.log(singleNumber([4, 1, 2, 1, 2]));
+
+var missingNumber = function (nums) {
+  const n = nums.length;
+  const expectedSum = (n * (n + 1)) / 2;
+  let actualSum = 0;
+  for (let i = 0; i < n; i++) {
+    actualSum += nums[i];
+  }
+  return expectedSum - actualSum;
+};
+
+console.log(missingNumber([3, 0, 1]));
+
+/* Input: nums = [3,0,1]
+Output: 2
+Explanation: n = 3 since there are 3 numbers, so all numbers are in the range [0,3]. 2 is the missing number in the range since it does not appear in nums.
+Example 2:
+
+Input: nums = [0,1]
+Output: 2
+Explanation: n = 2 since there are 2 numbers, so all numbers are in the range [0,2]. 2 is the missing number in the range since it does not appear in nums.
+Example 3:
+
+Input: nums = [9,6,4,2,3,5,7,0,1]
+Output: 8
+Explanation: n = 9 since there are 9 numbers, so all numbers are in the range [0,9]. 8 is the missing number in the range since it does not appear in nums. */
