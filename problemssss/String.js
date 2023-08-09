@@ -213,8 +213,8 @@ function findLongestCommonPrefix(str) {
   return left.substring(0, index);
 }
 
-console.log(findLongestCommonPrefix(["flower", "flow", "flight"]));
-console.log(findLongestCommonPrefix(["dog", "racecar", "car"]));
+// console.log(findLongestCommonPrefix(["flower", "flow", "flight"]));
+// console.log(findLongestCommonPrefix(["dog", "racecar", "car"]));
 
 function checkIsAnagram(x, y) {
   if (x.length !== y.length) {
@@ -234,4 +234,72 @@ function checkIsAnagram(x, y) {
   return true;
 }
 
-console.log(checkIsAnagram("geeksforgeeks", "forgeekgeeks"));
+// console.log(checkIsAnagram("geeksforgeeks", "forgeekgeeks"));
+
+/* Example 1:
+
+Input: word1 = "abc", word2 = "pqr"
+Output: "apbqcr"
+Explanation: The merged string will be merged as so:
+word1:  a   b   c
+word2:    p   q   r
+merged: a p b q c r
+Example 2:
+
+Input: word1 = "ab", word2 = "pqrs"
+Output: "apbqrs"
+Explanation: Notice that as word2 is longer, "rs" is appended to the end.
+word1:  a   b 
+word2:    p   q   r   s
+merged: a p b q   r   s
+Example 3:
+
+Input: word1 = "abcd", word2 = "pq"
+Output: "apbqcd"
+Explanation: Notice that as word1 is longer, "cd" is appended to the end.
+word1:  a   b   c   d
+word2:    p   q 
+merged: a p b q c   d */
+
+var mergeAlternately = function (x, y) {
+  let merged = "";
+  let i = 0;
+  let xl = x.length;
+  let yl = y.length;
+  let max = Math.max(x.length, y.length);
+  while (i < max) {
+    if (i < xl) {
+      merged += x[i];
+    }
+    if (i < yl) {
+      merged += y[i];
+    }
+    i++;
+  }
+  return merged;
+};
+
+// console.log(mergeAlternately("abc", "pqr"));
+// console.log(mergeAlternately("ab", "pqrs"));
+// console.log(mergeAlternately("abcd", "pq"));
+
+/* xample 1:
+
+Input: sentence = "thequickbrownfoxjumpsoverthelazydog"
+Output: true
+Explanation: sentence contains at least one of every letter of the English alphabet.
+Example 2:
+
+Input: sentence = "leetcode"
+Output: false */
+
+var checkIfPangram = function (s) {
+  return new Set(s.split("")).size == 26;
+};
+
+console.log(checkIfPangram("abcdefghijklmnopqrstuvwxyz"));
+
+console.log(checkIfPangram("leetcode"));
+
+const a = "abc";
+console.log("what", a.replace("a", ""));
