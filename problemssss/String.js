@@ -303,3 +303,57 @@ console.log(checkIfPangram("leetcode"));
 
 const a = "abc";
 console.log("what", a.replace("a", ""));
+
+/* Example 1:
+
+Input: n = 00000010100101000001111010011100
+Output:    964176192 (00111001011110000010100101000000)
+Explanation: The input binary string 00000010100101000001111010011100 represents the unsigned integer 43261596, so return 964176192 which its binary representation is 00111001011110000010100101000000.
+Example 2:
+
+Input: n = 11111111111111111111111111111101
+Output:   3221225471 (10111111111111111111111111111111)
+Explanation: The input binary string 11111111111111111111111111111101 represents the unsigned integer 4294967293, so return 3221225471 which its binary representation is 10111111111111111111111111111111. */
+
+var reverseBits = function (n) {
+  let reN = n.toString(2).padStart(32, "0").split("").reverse().join("");
+  return parseInt(reN, 2);
+};
+// console.log("op", reverseBits("00000010100101000001111010011100"));
+
+/* You are climbing a staircase. It takes n steps to reach the top.
+
+Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+
+ 
+
+Example 1:
+
+Input: n = 2
+Output: 2
+Explanation: There are two ways to climb to the top.
+1. 1 step + 1 step
+2. 2 steps
+Example 2:
+
+Input: n = 3
+Output: 3
+Explanation: There are three ways to climb to the top.
+1. 1 step + 1 step + 1 step
+2. 1 step + 2 steps
+3. 2 steps + 1 step */
+
+var climbStairs = function (n) {};
+
+console.log("climbstairs", climbStairs(3));
+console.log("climbstairs", climbStairs(2));
+
+function fibonacci(num) {
+  const fib = [0, 1];
+  for (let i = 2; i < num; i++) {
+    fib[i] = fib[i - 1] + fib[i - 2];
+  }
+  return fib; 
+}
+
+console.log("fib", fibonacci(3));
