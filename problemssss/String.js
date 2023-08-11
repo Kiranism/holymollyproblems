@@ -343,9 +343,16 @@ Explanation: There are three ways to climb to the top.
 2. 1 step + 2 steps
 3. 2 steps + 1 step */
 
-var climbStairs = function (n) {};
+var climbStairs = function (n) {
+  const noOfWays = [1, 2];
+  for (let i = 2; i <= n; i++) {
+    noOfWays[i] = noOfWays[i - 1] + noOfWays[i - 2];
+  }
+  return noOfWays[n - 1];
+};
 
 console.log("climbstairs", climbStairs(3));
+console.log("climbstairs", climbStairs(1));
 console.log("climbstairs", climbStairs(2));
 
 function fibonacci(num) {
@@ -353,7 +360,7 @@ function fibonacci(num) {
   for (let i = 2; i < num; i++) {
     fib[i] = fib[i - 1] + fib[i - 2];
   }
-  return fib; 
+  return fib;
 }
 
 console.log("fib", fibonacci(3));
