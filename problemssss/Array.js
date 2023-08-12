@@ -403,3 +403,101 @@ Example 3:
 Input: nums = [9,6,4,2,3,5,7,0,1]
 Output: 8
 Explanation: n = 9 since there are 9 numbers, so all numbers are in the range [0,9]. 8 is the missing number in the range since it does not appear in nums. */
+
+/* 169. Majority Element
+Easy
+16.3K
+470
+Companies
+Given an array nums of size n, return the majority element.
+
+The majority element is the element that appears more than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.
+
+ 
+
+Example 1:
+
+Input: nums = [3,2,3]
+Output: 3
+Example 2:
+
+Input: nums = [2,2,1,1,1,2,2]
+Output: 2 */
+
+// var majorityElement = function (nums) {
+//   let obj = {};
+//   let max = 0;
+//   let key = 0;
+//   for (let i = 0; i < nums.length; i++) {
+//     const n = nums[i];
+//     obj[n] = (obj[n] || 0) + 1;
+//   }
+//   console.log("obj", obj);
+//   for (c in obj) {
+//     console.log("c", c);
+//     if (obj[c] > max) {
+//       max = obj[c];
+//       key = c;
+//     }
+//   }
+//   return key;
+// };
+
+var majorityElement = function (nums) {
+  let obj = {};
+
+  for (let i = 0; i < nums.length; i++) {
+    const n = nums[i];
+    obj[n] = (obj[n] || 0) + 1;
+    if (obj[n] > nums.length / 2) return n;
+  }
+};
+// console.log("majority", majorityElement([3, 2, 3]));
+
+/* 412. Fizz Buzz
+Easy
+2.2K
+295
+Companies
+Given an integer n, return a string array answer (1-indexed) where:
+
+answer[i] == "FizzBuzz" if i is divisible by 3 and 5.
+answer[i] == "Fizz" if i is divisible by 3.
+answer[i] == "Buzz" if i is divisible by 5.
+answer[i] == i (as a string) if none of the above conditions are true.
+ 
+
+Example 1:
+
+Input: n = 3
+Output: ["1","2","Fizz"]
+Example 2:
+
+Input: n = 5
+Output: ["1","2","Fizz","4","Buzz"]
+Example 3:
+
+Input: n = 15
+Output: ["1","2","Fizz","4","Buzz","Fizz","7","8","Fizz","Buzz","11","Fizz","13","14","FizzBuzz"] */
+var fizzBuzz = function (n) {
+  let arr = [];
+  for (let i = 1; i <= n; i++) {
+    switch (true) {
+      case i % 3 === 0 && i % 5 === 0:
+        arr.push("FizzBuzz");
+        break;
+      case i % 3 === 0:
+        arr.push("Fizz");
+        break;
+      case i % 5 === 0:
+        arr.push("Buzz");
+        break;
+      default:
+        arr.push(`${i}`);
+        break;
+    }
+  }
+  return arr;
+};
+
+console.log("fizzbuzz", fizzBuzz(15));
