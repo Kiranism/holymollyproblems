@@ -500,4 +500,4 @@ var fizzBuzz = function (n) {
   return arr;
 };
 
-console.log("fizzbuzz", fizzBuzz(15));
+// console.log("fizzbuzz", fizzBuzz(15));
