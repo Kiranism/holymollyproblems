@@ -443,7 +443,55 @@ var titleToNumber = function (columnTitle) {
   }
   return result;
 };
-console.log("titleToNum", titleToNumber("AB"));
+// console.log("titleToNum", titleToNumber("AB"));
 
 let char = "titleToNum";
-console.log("tit", Math.pow(2, 2));
+// console.log("tit", Math.pow(2, 2));
+
+//     Write a function called `countVowels` that takes a string as input and returns the number of vowels (a, e, i, o, u) present in the string. The function should be case-insensitive, meaning both uppercase and lowercase vowels should be counted.
+// For example, if the input string is "Hello World", the function should return 3, since there are three vowels (e, o, o) in the string.
+// You can assume that the input string only contains alphabetic characters (no numbers or special characters).
+
+var countVowels = function (s) {
+  const vowels = "aeiou";
+  let count = 0;
+  for (let letter of s.toLowerCase()) {
+    if (vowels.includes(letter)) {
+      count++;
+    }
+  }
+  return count;
+};
+
+console.log("countVowels", countVowels("Hello World"));
+
+var nonRepeated = function (s) {
+  let hash = {};
+  for (let i = 0; i < s.length; i++) {
+    hash[s[i]] = (hash[s[i]] || 0) + 1;
+  }
+  for (let c in hash) {
+    if (hash[c] === 1) {
+      return c;
+    }
+  }
+  return null;
+};
+
+console.log("nonRep", nonRepeated("abacddce"));
+
+var reversedStr = function (s) {
+  let word = "";
+  let reversed = "";
+  for (let i = s.length - 1; i > 0; i--) {
+    const n = s[i];
+    if (n !== " ") {
+      word += s[i];
+    } else {
+      reversed += word;
+    }
+  }
+  return { word, reversed };
+};
+
+console.log("reverse", reversedStr("Hello World"));

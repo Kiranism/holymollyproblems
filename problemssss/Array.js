@@ -501,3 +501,26 @@ var fizzBuzz = function (n) {
 };
 
 // console.log("fizzbuzz", fizzBuzz(15));
+
+var sortArr = function (arr) {
+  let count1 = 0,
+    count2 = 0,
+    count3 = 0;
+  for (let i = 0; i < arr.length; i++) {
+    const n = arr[i];
+    if (n === 0) count1++;
+    if (n === 1) count2++;
+    if (n === 2) count3++;
+  }
+  for (let i = 0; i < count1; i++) {
+    arr[i] = 0;
+  }
+  for (let i = count1; i < count1 + count2; i++) {
+    arr[i] = 1;
+  }
+  for (let i = count1 + count2; i < arr.length; i++) {
+    arr[i] = 2;
+  }
+  return arr;
+};
+console.log("sortArr", sortArr([0, 1, 2, 0, 1, 2]));
