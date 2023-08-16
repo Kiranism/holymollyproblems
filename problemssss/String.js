@@ -494,4 +494,4 @@ var reversedStr = function (s) {
   return { word, reversed };
 };
 
-console.log("reverse", reversedStr("Hello World"));
+// console.log("reverse", reversedStr("Hello World"));
