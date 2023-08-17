@@ -33,7 +33,7 @@ function sum(a) {
 
 console.log(sum(2)(6)(2)());
 
-// debouncing
+// debouncingt
 
 const debounce = (cb, delay) => {
   let timer;
