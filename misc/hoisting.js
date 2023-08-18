@@ -62,3 +62,19 @@ function x() {
   }
 }
 x();
+
+const obj = {
+  name: "kiran",
+  age: "22",
+  hobby: {
+    sports: "cricket",
+    entertainment: "movies",
+  },
+};
+
+// const obj2 = JSON.parse(JSON.stringify(obj)); //deep copy
+const obj2 = structuredClone(obj); //deep copy
+obj2.age = "30";
+obj2.hobby.sports = "football";
+console.log("obj1", obj);
+console.log("obj2", obj2);
