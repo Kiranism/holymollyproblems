@@ -530,10 +530,36 @@ var lengthOfLongestSubstring = function (s) {
   for (let i = 0; i < s.length; i++) {
     hash[s[i]] = true;
     if (hash[s[i]]) {
-      
     }
   }
   return hash;
 };
 
 console.log("lenghtofLongst", lengthOfLongestSubstring("abcabcbb"));
+
+// remove vowels from string
+
+const removeVowels = function (s) {
+  const vowels = ["a", "e", "i", "o", "u"];
+  let str = "";
+  for (let i = 0; i < s.length; i++) {
+    if (!vowels.includes(s[i])) {
+      str += s[i];
+    }
+  }
+  return str;
+};
+console.log("removeVowels", removeVowels("hello world"));
+
+function alternateCap(s) {
+  let str = "";
+  for (let i = 0; i < s.length; i++) {
+    if (i % 2 === 0) {
+      str += s[i].toUpperCase();
+    } else {
+      str += s[i];
+    }
+  }
+  return str;
+}
+console.log("alternate", alternateCap("frontend developer"));
