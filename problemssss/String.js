@@ -563,3 +563,30 @@ function alternateCap(s) {
   return str;
 }
 console.log("alternate", alternateCap("frontend developer"));
+
+/* const isMatch = await bcrypt.compare("reqbody", "hashedPassword");
+console.log(isMatch); */
+
+/* Input: arr[] = {1, 1, 2, 2, 2, 2, 3,},   x = 2
+Output: 4 // x (or 2) occurs 4 times in arr[]
+
+Input: arr[] = {1, 1, 2, 2, 2, 2, 3,},   x = 3
+Output: 1 
+
+Input: arr[] = {1, 1, 2, 2, 2, 2, 3,},   x = 1
+Output: 2 
+
+Input: arr[] = {1, 1, 2, 2, 2, 2, 3,},   x = 4
+Output: -1 // 4 doesn't occur in arr[]  */
+
+function checkOccur(arr, num) {
+  let count = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (num === arr[i]) {
+      count++;
+    }
+  }
+  return count;
+}
+
+console.log("check", checkOccur([1, 1, 2, 2, 2, 2, 3], 2));
