@@ -555,3 +555,17 @@ var merge = function (nums1, m, nums2, n) {
 };
 
 console.log("merge", merge([1, 2, 3, 0, 0, 0], 3, [2, 5, 6], 3));
+
+function foo1() {
+  return {
+    bar: "yo",
+  };
+}
+function foo2() {
+  return {
+    bar: "habeebi",
+  };
+}
+
+console.log("fool", foo1());
+console.log("fool", foo2());
