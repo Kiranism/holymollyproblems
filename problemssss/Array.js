@@ -569,3 +569,5 @@ function foo2() {
 
 console.log("fool", foo1());
 console.log("fool", foo2());
+
+// faking constistency
