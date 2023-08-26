@@ -571,3 +571,55 @@ console.log("fool", foo1());
 console.log("fool", foo2());
 
 // faking constistency
+
+// SORT THIS [1,2,0,2,2,1] AS [0,1,1,2,2]
+
+var sortZero = function (nums) {
+  let zeros = 0,
+    ones = 0,
+    twos = 0;
+  let result = [];
+
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] === 0) {
+      zeros++;
+    }
+    if (nums[i] === 1) {
+      ones++;
+    }
+    if (nums[i] === 2) {
+      twos++;
+    }
+  }
+
+  for (let i = 0; i < zeros; i++) {
+    result[i] = 0;
+  }
+
+  for (let i = zeros; i < zeros + ones; i++) {
+    result[i] = 1;
+  }
+  for (let i = zeros + ones; i < zeros + ones + twos; i++) {
+    result[i] = 2;
+  }  
+
+  return { zeros, ones, twos, result };
+};
+
+console.log("sort", sortZero([1, 2, 0, 2, 2, 1]));
+
+
+You are asked to generate a list of integers and their associate squares (that is the integer to the power of 2) where the square does not exceed a given number.  As an example if given the number 50, the highest square value to be output would be 49.  What steps are needed for this programming snippet to produce the correct output?
+      
+
+  You have been asked to create a random password generator.The password generator must ask the user for the desired length of the password(minimum four characters).Each password must have at least one digit excluding zero and one(2 - 9), at least one lowercase letter other than a lower case L, at least one uppercase letter other than O and at least one of these characters between the brackets(!@#$ %^&*).What steps would you follow to produce a valid password ?
+
+    
+    
+  var cars=2;
+  do{
+    cars/=2;
+  }while(cars<1);
+  console.log("Number of cars: " + cars);
+  
+  What would the console.log output?
