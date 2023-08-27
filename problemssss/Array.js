@@ -601,25 +601,58 @@ var sortZero = function (nums) {
   }
   for (let i = zeros + ones; i < zeros + ones + twos; i++) {
     result[i] = 2;
-  }  
+  }
 
   return { zeros, ones, twos, result };
 };
 
 console.log("sort", sortZero([1, 2, 0, 2, 2, 1]));
 
+// You are asked to generate a list of integers and their associate squares (that is the integer to the power of 2) where the square does not exceed a given number.  As an example if given the number 50, the highest square value to be output would be 49.  What steps are needed for this programming snippet to produce the correct output?
 
-You are asked to generate a list of integers and their associate squares (that is the integer to the power of 2) where the square does not exceed a given number.  As an example if given the number 50, the highest square value to be output would be 49.  What steps are needed for this programming snippet to produce the correct output?
-      
+//   You have been asked to create a random password generator.The password generator must ask the user for the desired length of the password(minimum four characters).Each password must have at least one digit excluding zero and one(2 - 9), at least one lowercase letter other than a lower case L, at least one uppercase letter other than O and at least one of these characters between the brackets(!@#$ %^&*).What steps would you follow to produce a valid password ?
 
-  You have been asked to create a random password generator.The password generator must ask the user for the desired length of the password(minimum four characters).Each password must have at least one digit excluding zero and one(2 - 9), at least one lowercase letter other than a lower case L, at least one uppercase letter other than O and at least one of these characters between the brackets(!@#$ %^&*).What steps would you follow to produce a valid password ?
+//   var cars=2;
+//   do{
+//     cars/=2;
+//   }while(cars<1);
+//   console.log("Number of cars: " + cars);
 
-    
-    
-  var cars=2;
-  do{
-    cars/=2;
-  }while(cars<1);
-  console.log("Number of cars: " + cars);
-  
-  What would the console.log output?
+//   What would the console.log output?
+
+// pivot in array
+/* 1 4 2 5 0
+op 2
+
+2 3 4 1 4 5
+op 1  */
+
+// var pivot = function (nums) {
+//   const total = nums.reduce((prev, curr) => prev + curr, 0);
+//   let leftSum = 0;
+//   for (let i = 0; i < nums.legnth; i++) {
+//     let rightSum = total - nums[i] - leftSum;
+//     if (leftSum === rightSum) {
+//       return i;
+//     }
+//     leftSum += nums[i];
+//   }
+//   return -1;
+// };
+
+var pivot = function (nums) {
+  for (let i = 0; i < nums.length; i++) {
+    let left = 0,
+      right = 0;
+
+    for (let j = 0; j < i; j++) {
+      left += nums[j];
+    }
+    for (let k = i + 1; k < nums.length; k++) {
+      right += nums[k];
+    }
+    if (left == right) return i;
+  }
+  return -1;
+};
+console.log("pivot", pivot([1, 4, 2, 5, 0]));
