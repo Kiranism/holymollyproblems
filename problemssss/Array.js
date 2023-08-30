@@ -656,3 +656,14 @@ var pivot = function (nums) {
   return -1;
 };
 console.log("pivot", pivot([1, 4, 2, 5, 0]));
+
+
+var majorityElement = function (nums) {
+  let obj = {};
+
+  for (let i = 0; i < nums.length; i++) {
+    const n = nums[i];
+    obj[n] = (obj[n] || 0) + 1;
+    if (obj[n] > nums.length / 2) return n;
+  }
+};
