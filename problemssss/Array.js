@@ -698,4 +698,4 @@ var removeDuplicates = function (nums) {
 
 console.log("removeDup", removeDuplicates([1, 1, 2]));
 
-// clown push.
+// clown push. some more changes i n draw x
