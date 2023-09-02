@@ -699,3 +699,40 @@ var removeDuplicates = function (nums) {
 console.log("removeDup", removeDuplicates([1, 1, 2]));
 
 // clown push. some more changes i n draw x
+
+/* 
+485. Max Consecutive Ones
+Easy
+5K
+442
+Companies
+Given a binary array nums, return the maximum number of consecutive 1's in the array.
+
+ 
+
+Example 1:
+
+Input: nums = [1,1,0,1,1,1]
+Output: 3
+Explanation: The first two digits or the last three digits are consecutive 1s. The maximum number of consecutive 1s is 3.
+Example 2:
+
+Input: nums = [1,0,1,1,0,1]
+Output: 2 */
+
+var findMaxConsecutiveOnes = function (nums) {
+  let currentPoint = 0;
+  let maxPoint = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] === 1) {
+      currentPoint++;
+      maxPoint = Math.max(maxPoint, currentPoint);
+    } else {
+      currentPoint = 0;
+    }
+  }
+  return maxPoint;
+};
+
+console.log("findMaxCons", findMaxConsecutiveOnes([1, 0, 1, 1, 0, 1]));
+console.log("findMaxCons", findMaxConsecutiveOnes([1, 1, 0, 1, 1, 1]));
