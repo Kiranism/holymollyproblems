@@ -736,3 +736,38 @@ var findMaxConsecutiveOnes = function (nums) {
 
 console.log("findMaxCons", findMaxConsecutiveOnes([1, 0, 1, 1, 0, 1]));
 console.log("findMaxCons", findMaxConsecutiveOnes([1, 1, 0, 1, 1, 1]));
+
+/* Example 1:
+
+Input: nums = [-4,-1,0,3,10]
+Output: [0,1,9,16,100]
+Explanation: After squaring, the array becomes [16,1,0,9,100].
+After sorting, it becomes [0,1,9,16,100].
+Example 2:
+
+Input: nums = [-7,-3,2,3,11]
+Output: [4,9,9,49,121] */
+
+var sortedSquares = function (nums) {
+  const res = [];
+  for (let i = 0; i < nums.length; i++) {
+    const n = nums[i] * nums[i];
+    res.push(n);
+  }
+  return res.sort((a, b) => a - b);
+};
+
+console.log("sortedsquare", sortedSquares([-4, -1, 0, 3, 10]));
+
+// [2,0,4,0,5]
+var moveZeros = function (nums) {
+  let c = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] !== 0) {
+      [nums[c], nums[i]] = [nums[i], nums[c]];
+      c++;
+    }
+  }
+  return nums;
+};
+console.log("moveZeros", moveZeros([2, 0, 4, 0, 5]));
