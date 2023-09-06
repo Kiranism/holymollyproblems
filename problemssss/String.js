@@ -619,3 +619,21 @@ var rotateString = function (s, goal) {
 
 console.log("rotateString", rotateString("abcde", "cdeab"));
 console.log("rotateString", rotateString("abcde", "abced"));
+
+// GOOGLE
+// G**GLE
+
+function isMatch(str1, str2) {
+  const pattern = str2.replace(/\?/g, ".").replace(/\*/g, ".*");
+
+  const regex = new RegExp(`^${pattern}$`);
+
+  return regex.test(str1) ? "MATCH_FOUND" : "NOT_FOUND";
+}
+
+// Test cases
+const input1 = ["GOOGLE", "G**LE"];
+const input2 = ["Haabab", "a**?bba"];
+
+console.log(isMatch(...input1)); // Output: MATCH_FOUND
+console.log(isMatch(...input2)); // Output: NOT_FOUND
