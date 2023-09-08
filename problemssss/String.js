@@ -637,3 +637,42 @@ const input2 = ["Haabab", "a**?bba"];
 
 console.log(isMatch(...input1)); // Output: MATCH_FOUND
 console.log(isMatch(...input2)); // Output: NOT_FOUND
+
+/* Example 1:
+2704. To Be Or Not To Be
+
+Input: func = () => expect(5).toBe(5)
+Output: {"value": true}
+Explanation: 5 === 5 so this expression returns true.
+Example 2:
+
+Input: func = () => expect(5).toBe(null)
+Output: {"error": "Not Equal"}
+Explanation: 5 !== null so this expression throw the error "Not Equal".
+Example 3:
+
+Input: func = () => expect(5).notToBe(null)
+Output: {"value": true}
+Explanation: 5 !== null so this expression returns true. */
+
+var expect = function (val) {
+  function toBe(val2) {
+    if (val !== val2) {
+      throw new Error("Not Equal");
+    } else {
+      return true;
+    }
+  }
+  function notToBe(val2) {
+    if (val === val2) {
+      throw new Error("Equal");
+    } else {
+      return true;
+    }
+  }
+  return { toBe, notToBe };
+};
+
+console.log("expect", expect(5).toBe(5));
+console.log("expect", expect(5).notToBe(5));
+console.log("expect", expect(5).notToBe(null));
